@@ -37,8 +37,8 @@ def qry_activities_register(session, id_num):
 
 # Query all the activities in the database
 def qry_activities(session):
-    qry = session.query(m.Activity).order_by(m.Activity.name)
-    return [(row.id, row.name) for row in qry.all()]
+    qry = session.query(m.Activity).order_by(m.Activity.id)
+    return {row.id: f"{row.name}" for row in qry.all()}
 
 
 # Query the attendees of a given activity
